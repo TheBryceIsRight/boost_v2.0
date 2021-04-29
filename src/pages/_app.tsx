@@ -480,15 +480,13 @@ function MyApp({ Component, pageProps }: AppProps) {
       // onKeyDown={toggleDrawer(anchor, false)}
       >
       <List>
-      <Link href="/[lang]/" as={`/${locale}/`} passHref >
 
       <ListItem button>
           <ListItemIcon><StoreIcon/>
           </ListItemIcon>
           <ListItemText primary='Merchants' />
       </ListItem>
-      </Link>
-      <Link href="/sheets/[lang]/cases" as={`/sheets/${locale}/cases`} passHref >
+      <Link href="/Index" passHref >
       <ListItem button>
           <ListItemIcon><WorkIcon/>
           </ListItemIcon>
