@@ -4,18 +4,18 @@ import React from 'react';
 import {
   Typography,
 } from '@material-ui/core';
-import { Media, MediaContextProvider } from "../../utils/media";
-import withLocale from '../../hocs/withLocale';
+import { Media, MediaContextProvider } from "../utils/media";
+import withLocale from '../hocs/withLocale';
 import Grid from '@material-ui/core/Grid';
 // import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import ComboBox from '../../components/ComboBox';
-import SearchList from "../../components/SearchList";
+import ComboBox from '../components/ComboBox';
+import SearchList from "../components/SearchList";
 import Box from "@material-ui/core/Box";
-import Pie from "../../components/PieChart";
-import CollapsibleTable from "../../components/CollapsibleTable";
+import Pie from "../components/PieChart";
+import CollapsibleTable from "../components/CollapsibleTable";
 import { ThemeProvider } from '@material-ui/core/styles';
-import themeContext from '../../components/Theme';
-import Bar from "../../components/Bar";
+import themeContext from '../components/Theme';
+import Bar from "../components/Bar";
 
 
 function DIY() {

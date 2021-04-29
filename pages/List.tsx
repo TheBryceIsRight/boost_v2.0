@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-unfetch';
 import Link from 'next/link';
-import { VehiclePerson } from '../../api/VehiclePerson';
+import { VehiclePerson } from '../api/VehiclePerson';
 
 export interface ListProps {
   ownersList?: VehiclePerson[];

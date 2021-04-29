@@ -2,7 +2,7 @@ import fetch from 'isomorphic-unfetch';
 import { NextPageContext } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { VehiclePerson } from '../../../api/VehiclePerson';
+import { VehiclePerson } from '../../api/VehiclePerson';
 
 export interface PersonProps {
   ownersList?: VehiclePerson[];

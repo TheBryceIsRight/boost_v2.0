@@ -1,9 +1,9 @@
 import { AppProps } from 'next/app';
 import React, { useState, useEffect } from 'react'
-import { lightTheme, darkTheme } from '../../components/Theme'
+import { lightTheme, darkTheme } from '../components/Theme'
 import { ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Media, MediaContextProvider } from "../../utils/media";
+import { Media, MediaContextProvider } from "../utils/media";
 
 
 import Link from 'next/link';
@@ -33,11 +33,11 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonIcon from '@material-ui/icons/Person';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import MessageIcon from '@material-ui/icons/Message';
-import useTranslation from '../../hooks/useTranslation';
+import useTranslation from '../hooks/useTranslation';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
-import ThemeContext from '../../components/Theme';
+import ThemeContext from '../components/Theme';
 import { useRouter } from 'next/router';
-import { locales, languageNames } from '../../translations/config';
+import { locales, languageNames } from '../translations/config';
 import TranslateIcon from '@material-ui/icons/Translate';
 import Tooltip from '@material-ui/core/Tooltip';
 import ButtonBase from '@material-ui/core/ButtonBase';

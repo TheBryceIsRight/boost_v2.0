@@ -1,7 +1,7 @@
 import React from "react"
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { defaultLocale } from '../../translations/config';
-import { mediaStyles } from "../../utils/media";
+import { defaultLocale } from '../translations/config';
+import { mediaStyles } from "../utils/media";
 
 export default class MyDocument extends Document {
   render() {
