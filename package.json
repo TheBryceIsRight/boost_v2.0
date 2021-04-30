@@ -1,15 +1,14 @@
 {
-  "name": "youtube-2020-march-nextjs-part4",
+  "name": "youtube-2020-march-nextjs-part7",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "node ./database-test.js && next dev",
     "build": "next build",
-    "start": "next start",
-    "mock-server": "json-server --watch ./db.json -p 4001 -d 1500"
+    "start": "next start"
   },
   "dependencies": {
-    "@artsy/fresnel": "^1.3.1",
+    "@artsy/fresnel": "^1.4.0",
     "@date-io/date-fns": "^2.10.8",
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
@@ -21,18 +20,26 @@
     "@nivo/legends": "^0.67.0",
     "@nivo/pie": "^0.67.0",
     "@nivo/tooltip": "^0.67.0",
-    "@react-spring/web": "^9.1.2",
+    "bcrypt": "4.0.1",
+    "cookie": "0.4.0",
+    "formik": "^2.2.6",
+    "formik-material-ui": "^3.0.1",
+    "formik-material-ui-lab": "0.0.8",
+    "formik-material-ui-pickers": "0.0.12",
     "isomorphic-unfetch": "3.0.0",
-    "next": "9.2.1",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
-    "sqlite": "3.0.3",
-    "swr": "0.1.17"
+    "jsonwebtoken": "8.5.1",
+    "next": "9.3.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "sqlite": "3.0.6",
+    "swr": "0.1.18"
   },
   "devDependencies": {
-    "@types/node": "13.7.7",
-    "@types/react": "16.9.23",
-    "json-server": "0.16.1",
+    "@types/bcrypt": "3.0.0",
+    "@types/cookie": "0.3.3",
+    "@types/jsonwebtoken": "8.3.8",
+    "@types/node": "13.9.5",
+    "@types/react": "16.9.27",
     "typescript": "3.8.3"
   }
 }

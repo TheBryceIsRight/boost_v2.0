@@ -2,7 +2,7 @@ import fetch from 'isomorphic-unfetch';
 import { NextPageContext } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { VehiclePerson } from '../../api/VehiclePerson';
+import { VehiclePerson } from '../../../api/VehiclePerson';
 
 export interface PersonProps {
   ownersList?: VehiclePerson[];
@@ -15,7 +15,7 @@ export default function Person({ ownersList }: PersonProps) {
   useEffect(() => {
     async function loadData() {
       const response = await fetch(
-        'http://localhost:4001/apis/vehicles?ownerName=' +
+        'http://localhost:4001/vehicles?ownerName=' +
           router.query.person +
           '&vehicle=' +
           router.query.vehicle
@@ -42,7 +42,7 @@ Person.getInitialProps = async ({query, req}: NextPageContext) => {
   }
 
   const response = await fetch(
-    'http://localhost:4001/apis/vehicles?ownerName=' +
+    'http://localhost:4001/vehicles?ownerName=' +
       query.person +
       '&vehicle=' +
       query.vehicle
