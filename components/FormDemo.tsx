@@ -2,7 +2,7 @@ import { Box, Button, Card, CardContent, Checkbox, CheckboxProps, FormControlLab
 import { ErrorMessage, Field, Form, Formik, useField } from 'formik';
 import React from 'react';
 import { array, boolean, mixed, number, object, string } from 'yup';
-import { InvestmentDetails } from '../../components/InvestmentDetails';
+import { InvestmentDetails } from './InvestmentDetails';
 
 const initialValues: InvestmentDetails = {
   fullName: '',

@@ -1,6 +1,6 @@
 import { Container, Grid } from '@material-ui/core';
 import React from 'react';
-import { FormDemo } from './FormDemo';
+import { FormDemo } from '../../components/FormDemo';
 
 const Formik: React.FC = () => {
   return (
