@@ -1,6 +1,6 @@
 {
-  "name": "youtube-2020-march-nextjs-part7",
-  "version": "0.1.0",
+  "name": "boost",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "dev": "node ./database-test.js && next dev",
@@ -20,6 +20,11 @@
     "@nivo/legends": "^0.67.0",
     "@nivo/pie": "^0.67.0",
     "@nivo/tooltip": "^0.67.0",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^13.1.8",
+    "@types/jest": "^26.0.23",
+    "@types/yup": "^0.29.11",
     "bcrypt": "4.0.1",
     "cookie": "0.4.0",
     "formik": "^2.2.6",
@@ -32,14 +37,15 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "sqlite": "3.0.6",
-    "swr": "0.1.18"
+    "swr": "0.1.18",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@types/bcrypt": "3.0.0",
     "@types/cookie": "0.3.3",
     "@types/jsonwebtoken": "8.3.8",
-    "@types/node": "13.9.5",
-    "@types/react": "16.9.27",
+    "@types/node": "^13.13.51",
+    "@types/react": "^16.9.27",
     "typescript": "3.8.3"
   }
 }
