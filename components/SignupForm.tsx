@@ -3,6 +3,9 @@ import { ErrorMessage, Field, Form, Formik, useField } from 'formik';
 import React, {useState} from 'react';
 import { array, boolean, mixed, number, object, string } from 'yup';
 import { SignupDetail } from './SignupDetail';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 
 const initialValues: SignupDetail = {
 firstName: "",
@@ -13,9 +16,26 @@ password: "",
 };
 
 
+function Alert(props: AlertProps) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+  
+  const useStyles = makeStyles((theme: Theme) => ({
+    root: {
+      width: '100%',
+      '& > * + *': {
+        marginTop: theme.spacing(2),
+      },
+    },
+  }));
+
+
+
 export default function SignupForm() {
 
     const [message, setMessage] = useState<any>(null);
+    const [open, setOpen] = React.useState(false);
+
     async function handleLogin(email:string, password:string) {
       const resp = await fetch('http://localhost:3000/api/signup', {
         method: 'POST',
@@ -29,13 +49,25 @@ export default function SignupForm() {
       });
       const json = await resp.json();
       setMessage(json);
-    }  
+      if (json.message === 'Sign up successful') {
+        setOpen(true);
+      }
+    }
+    
+    const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+    setOpen(false);
+    };
 
 
   return (
+    <React.Fragment>
     <Card>
       <CardContent>
-        <Typography variant="h4">New Account</Typography>
+        <Typography variant="h4">Sign up</Typography>
         <br/>
         <Formik
           validationSchema={
@@ -105,6 +137,13 @@ export default function SignupForm() {
         </Formik>
       </CardContent>
     </Card>
+    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+    <Alert onClose={handleClose} severity="success">
+      Successfully signed up
+    </Alert>
+  </Snackbar>
+    </React.Fragment>
+
   );
 }
 

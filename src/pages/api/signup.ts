@@ -19,7 +19,7 @@ export default async function signup(
       result.finalize();
 
       const person = await db.all('select * from person');
-      res.json(person);
+      res.status(200).json({ message: 'Sign up successful' });
     });
   } else {
     res.status(405).json({ message: 'We only support POST' });

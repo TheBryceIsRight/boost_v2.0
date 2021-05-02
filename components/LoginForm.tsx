@@ -62,7 +62,7 @@ export default function FormDemo() {
     <React.Fragment>
     <Card>
       <CardContent>
-        <Typography variant="h4">New Account</Typography>
+        <Typography variant="h4">Sign on</Typography>
         <br/>
         <Formik
           validationSchema={
