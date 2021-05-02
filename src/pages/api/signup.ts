@@ -13,9 +13,9 @@ export default async function signup(
       // Store hash in your password DB.
 
       const statement = await db.prepare(
-        'INSERT INTO person (name, email, password) values (?, ?, ?)'
+        'INSERT INTO person (firstName, lastName, email, password) values (?, ?, ?, ?)'
       );
-      const result = await statement.run(req.body.name, req.body.email, hash);
+      const result = await statement.run(req.body.firstName, req.body.lastName, req.body.email, hash);
       result.finalize();
 
       const person = await db.all('select * from person');

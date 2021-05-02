@@ -302,7 +302,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       open={isMenuOpen}
       onClose={handleMenuClose}
       >
-      <Link href="/Login" passHref >
+      <Link href="/Login" passHref>
       <MenuItem>
             <ListItemIcon>
               <VpnKeyIcon/>
@@ -314,7 +314,6 @@ function MyApp({ Component, pageProps }: AppProps) {
             </ListItemText>
       </MenuItem>
       </Link>
-      <Link href="/api/logout" passHref >
       <MenuItem>
             <ListItemIcon>
               <ExitToAppIcon/>
@@ -325,7 +324,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                   </Typography>
             </ListItemText>
       </MenuItem>
-      </Link>
 
       <Link href="/profile" passHref >
       <MenuItem>
@@ -480,13 +478,14 @@ function MyApp({ Component, pageProps }: AppProps) {
       // onKeyDown={toggleDrawer(anchor, false)}
       >
       <List>
-
+      <Link href="/" passHref >
       <ListItem button>
           <ListItemIcon><StoreIcon/>
           </ListItemIcon>
           <ListItemText primary='Merchants' />
       </ListItem>
-      <Link href="/Index" passHref >
+      </Link>
+      <Link href="/" passHref >
       <ListItem button>
           <ListItemIcon><WorkIcon/>
           </ListItemIcon>
@@ -527,7 +526,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <div className={classes.grow}>
             <AppBar position="static" style={{ background: 'transparent', boxShadow:'none'}}>
               <Toolbar disableGutters={true}>
-                <React.Fragment>
                 <IconButton
                     className={classes.menuButton}
                     color="primary"
@@ -543,7 +541,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                     onClose={toggleDrawer('left', false)}>{list('left')}
                     
                 </Drawer>
-                </React.Fragment>
                 <Logo/>
                 <div className={classes.grow} />
                 <div className={classes.sectionDesktop}>

@@ -1,7 +1,8 @@
 -- Up
 CREATE TABLE Person (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
+    firstName TEXT,
+    lastName TEXT,
     email TEXT,
     password TEXT
 );

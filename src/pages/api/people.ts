@@ -21,7 +21,7 @@ export default authenticated(async function getPeople(
   res: NextApiResponse
 ) {
   const db = await sqlite.open('./mydb.sqlite');
-  const people = await db.all('select id, email, name from person');
+  const people = await db.all('select firstName, lastName, email, id from person');
 
   res.json(people);
 });

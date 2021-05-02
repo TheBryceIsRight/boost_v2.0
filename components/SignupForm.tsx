@@ -38,13 +38,15 @@ export default function SignupForm() {
     const [message, setMessage] = useState<any>(null);
     const [open, setOpen] = React.useState(false);
 
-    async function handleLogin(email:string, password:string) {
+    async function handleLogin(firstName:string, lastName:string, email:string, password:string) {
       const resp = await fetch('http://localhost:3000/api/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+          firstName: firstName,
+          lastName: lastName,
           email: email,
           password: password
         })
@@ -91,7 +93,7 @@ export default function SignupForm() {
               console.log('---------');
               console.log("Email test")
               console.log(values.email)
-              handleLogin(values.email, values.password)
+              handleLogin(values.firstName, values.lastName, values.email, values.password)
               res("onSubmitHandler complete");
             }, 2000);
           })
@@ -137,6 +139,7 @@ export default function SignupForm() {
 
             <pre>{JSON.stringify(errors, null, 4)}</pre>
               <pre>{JSON.stringify(values, null, 4)}</pre>
+
             </Form>
           )}
         </Formik>

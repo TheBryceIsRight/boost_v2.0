@@ -9,10 +9,11 @@ export default async function getPersonById(
 
   if (req.method === 'PUT') {
     const statement = await db.prepare(
-      'UPDATE person SET name= ?, email = ? where id = ?'
+      'UPDATE person SET firstName = ?, lastName = ?, email = ? where id = ?'
     );
     const result = await statement.run(
-      req.body.name,
+      req.body.fistName,
+      req.body.lastName,
       req.body.email,
       req.query.id
     );
