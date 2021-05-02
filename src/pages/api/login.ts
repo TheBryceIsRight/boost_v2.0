@@ -13,8 +13,12 @@ export default async function login(req: NextApiRequest, res: NextApiResponse) {
       req.body.email
     ]);
 
+    if (typeof person === 'undefined') {
+      return res.json({ message: 'Woops, something went wrong! ¯\\_(ツ)_/¯' });
+    }
+
     compare(req.body.password, person.password, function(err, result) {
-      if (!err && result) {
+      if (!err && result ) {
         const claims = { sub: person.id, myPersonEmail: person.email };
         const jwt = sign(claims, secret, { expiresIn: '1h' });
 
@@ -24,10 +28,11 @@ export default async function login(req: NextApiRequest, res: NextApiResponse) {
           sameSite: 'strict',
           maxAge: 3600,
           path: '/'
-        }))
+        }));
+
         res.status(200).json({message: 'Welcome back!'});
       } else {
-        res.json({ message: 'Woops, something went wrong!' });
+        res.json({ message: 'Woops, something went wrong! ¯\\_(ツ)_/¯' });
       }
     });
   } else {
