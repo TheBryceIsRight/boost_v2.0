@@ -79,10 +79,11 @@ export default function SignupForm() {
         <Formik
           validationSchema={
             object({
-              firstName: string().required('Your first name is required').min(2).max(100),
-              lastName: string().required('Your family name is required').min(2).max(100),
-              email: string().required('Your email is required').min(5).max(100),
-              acceptedTermsAndConditions: boolean().oneOf([true]),
+              firstName: string().required('Your first name is required').min(2, 'Too short!').max(100, 'Too long!'),
+              lastName: string().required('Your last name is required').min(2, 'Too short!').max(100, 'Too long!'),
+              email: string().email('Invalid Email').required('Your email is required').min(5, 'Too short!').max(100,'Too long!'),
+              acceptedTermsAndConditions: boolean().oneOf([true], "Please accept the terms and conditions"),
+              password: string().required('Your password is required').min(2, 'Too short!').max(100, 'Too long!'),
             })
           }
         initialValues={initialValues} onSubmit={(values, formikHelpers) => {

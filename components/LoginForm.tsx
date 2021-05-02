@@ -77,7 +77,8 @@ export default function FormDemo() {
         <Formik
           validationSchema={
             object({
-              email: string().required('Your email is required').min(5).max(100),
+              email: string().email('Invalid Email').required('Your email is required').min(5, 'Too short!').max(100,'Too long!'),
+              password: string().required('Your password is required').min(2, 'Too short!').max(100, 'Too long!'),
             })
           }
         initialValues={initialValues} onSubmit={(values, formikHelpers) => {
