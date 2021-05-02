@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardContent, Checkbox, CheckboxProps, FormControlLabel, FormGroup, MenuItem, TextField, Typography, Container } from '@material-ui/core';
+import { Box, Button, Card, CardContent, Checkbox, CheckboxProps, FormControlLabel, FormGroup, MenuItem, TextField, Typography, Container, Grid } from '@material-ui/core';
 import { ErrorMessage, Field, Form, Formik, useField } from 'formik';
 import React, {useState} from 'react';
 import { array, boolean, mixed, number, object, string } from 'yup';
@@ -6,6 +6,8 @@ import { LoginDetail } from './LoginDetail';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import Link from 'next/link';
+
 
 const initialValues: LoginDetail = {
 email: "",
@@ -30,6 +32,8 @@ function Alert(props: AlertProps) {
 export default function FormDemo() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const [errorOpen, setErrorOpen] = React.useState(false);
+
     const [message, setMessage] = useState<any>(null);
     async function handleLogin(email:string, password:string) {
       const resp = await fetch('http://localhost:3000/api/login', {
@@ -47,6 +51,8 @@ export default function FormDemo() {
       console.log(json.message);
       if (json.message === 'Welcome back!') {
         setOpen(true);
+      } else {
+        setErrorOpen(true);
       }
     }  
     
@@ -56,14 +62,18 @@ export default function FormDemo() {
         }
 
     setOpen(false);
+    setErrorOpen(false);
     };
 
   return (
     <React.Fragment>
     <Card>
       <CardContent>
+      <Grid container direction="column" spacing={2} justify='center' alignItems='center'>
+        <Grid item>
         <Typography variant="h4">Sign on</Typography>
-        <br/>
+        </Grid>
+        <Grid item>
         <Formik
           validationSchema={
             object({
@@ -106,6 +116,17 @@ export default function FormDemo() {
             </Form>
           )}
         </Formik>
+        </Grid>
+          <Grid item>
+            <Typography variant='body1'>Don't have an account?</Typography>
+          </Grid>
+          <Grid item>
+          <Link href='/signup' passHref>
+            <Button variant='outlined' color='primary'>Sign up</Button>
+          </Link>
+          </Grid>
+        </Grid>
+
       </CardContent>
     </Card>
     <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
@@ -113,6 +134,12 @@ export default function FormDemo() {
       Successfully logged in
     </Alert>
   </Snackbar>
+  <Snackbar open={errorOpen} autoHideDuration={6000} onClose={handleClose}>
+    <Alert onClose={handleClose} severity="error">
+      Your username and/or password is incorrect
+    </Alert>
+  </Snackbar>
+
   </React.Fragment>
   );
 }

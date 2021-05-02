@@ -24,7 +24,7 @@ export default function Login() {
 
   return (
     <div>
-      <Grid container spacing={2} direction='column' justify='center' alignItems='flex-start'>
+      <Grid container spacing={2} direction='column' justify='center' alignItems='center'>
       <Grid item>
       <Container>
         <Form />

@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardContent, Checkbox, CheckboxProps, FormControlLabel, FormGroup, MenuItem, TextField, Typography, Container } from '@material-ui/core';
+import { Box, Button, Card, CardContent, Checkbox, CheckboxProps, FormControlLabel, FormGroup, MenuItem, TextField, Typography, Container, Grid } from '@material-ui/core';
 import { ErrorMessage, Field, Form, Formik, useField } from 'formik';
 import React, {useState} from 'react';
 import { array, boolean, mixed, number, object, string } from 'yup';
@@ -6,6 +6,8 @@ import { SignupDetail } from './SignupDetail';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import Link from 'next/link';
+
 
 const initialValues: SignupDetail = {
 firstName: "",
@@ -67,8 +69,11 @@ export default function SignupForm() {
     <React.Fragment>
     <Card>
       <CardContent>
-        <Typography variant="h4">Sign up</Typography>
-        <br/>
+      <Grid container direction="column" spacing={2} justify='center' alignItems='center'>
+        <Grid item>
+          <Typography variant="h4">Sign up</Typography>
+        </Grid>
+        <Grid item>
         <Formik
           validationSchema={
             object({
@@ -135,6 +140,17 @@ export default function SignupForm() {
             </Form>
           )}
         </Formik>
+        </Grid>
+        <Grid item>
+            <Typography variant='body1'>Already have an account?</Typography>
+          </Grid>
+          <Grid item>
+          <Link href='/login' passHref>
+            <Button variant='outlined' color='primary'>Sign on</Button>
+          </Link>
+          </Grid>
+        </Grid>
+
       </CardContent>
     </Card>
     <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>

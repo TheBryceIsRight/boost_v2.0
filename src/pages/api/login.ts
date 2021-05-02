@@ -27,7 +27,7 @@ export default async function login(req: NextApiRequest, res: NextApiResponse) {
         }))
         res.status(200).json({message: 'Welcome back!'});
       } else {
-        res.json({ message: 'Ups, something went wrong!' });
+        res.json({ message: 'Woops, something went wrong!' });
       }
     });
   } else {
