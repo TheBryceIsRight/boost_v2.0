@@ -1,4 +1,7 @@
 import { useRef, useState } from 'react';
+import Form from '../../components/SignupForm';
+import {Grid, Container} from '@material-ui/core';
+
 
 export default function Signup() {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -28,6 +31,15 @@ export default function Signup() {
 
   return (
     <div>
+      <div>
+      <Grid container spacing={2} direction='column' justify='center' alignItems='flex-start'>
+      <Grid item>
+      <Container>
+        <Form />
+      </Container>
+      </Grid>
+    </Grid>
+      </div>
       <h1>Create a new user!!</h1>
       {JSON.stringify(result)}
       <input type="text" placeholder="email" ref={emailRef} />

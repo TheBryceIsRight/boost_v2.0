@@ -25,7 +25,7 @@ export default async function login(req: NextApiRequest, res: NextApiResponse) {
           maxAge: 3600,
           path: '/'
         }))
-        res.json({message: 'Welcome back to the app!'});
+        res.status(200).json({message: 'Welcome back!'});
       } else {
         res.json({ message: 'Ups, something went wrong!' });
       }
