@@ -29,7 +29,7 @@ const dark = createMuiTheme({
         main: red.A400,
       },
       nuetral: {
-        main: '#4DDF65',
+        main: '#6E6E6E',
       },
       background: {
         default: '#004D60',
@@ -52,7 +52,7 @@ const light = createMuiTheme({
           main: red.A400,
         },
         nuetral: {
-          main: '#025D25',
+          main: '#BCBCBA',
         },
         background: {
           default: '#FFF',

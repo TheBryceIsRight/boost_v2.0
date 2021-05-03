@@ -38,11 +38,11 @@ const theme1 = {
     },
     grid: {
       line: {
-        stroke: darkTheme.palette.primary.main,
+        stroke: darkTheme.palette.nuetral.main,
         strokeWidth: 0.5
       }
     },
-    legend: {
+    legends: {
       text: {
         fontFamily: "'Roboto', sans-serif",
         fill: darkTheme.palette.primary.main,
@@ -76,11 +76,11 @@ const theme1 = {
     },
     grid: {
       line: {
-        stroke: lightTheme.palette.primary.main,
+        stroke: lightTheme.palette.nuetral.main,
         strokeWidth: 0.5
       }
     },
-    legend: {
+    legends: {
       text: {
         fontFamily: "'Roboto', sans-serif",
         fill: lightTheme.palette.primary.main,
@@ -277,7 +277,7 @@ class Chart extends React.Component {
                   <ResponsiveLine
                         data={data}
                         theme={theme}
-                        colors={{ scheme: 'pastel2' }}
+                        colors= {this.context ? { scheme: "dark2"} : {scheme: "pastel2"}}
                         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
                         xScale={{ type: 'point' }}
                         yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true, reverse: false }}

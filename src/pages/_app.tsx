@@ -309,7 +309,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             </ListItemIcon>
             <ListItemText>
                   <Typography>
-                    {t("login")}
+                    Login
                   </Typography>
             </ListItemText>
       </MenuItem>
@@ -320,7 +320,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             </ListItemIcon>
             <ListItemText>
                   <Typography>
-                  {t("logout")}
+                  Logout
                   </Typography>
             </ListItemText>
       </MenuItem>
@@ -333,14 +333,13 @@ function MyApp({ Component, pageProps }: AppProps) {
             </ListItemIcon>
             <ListItemText>
                   <Typography>
-                  {t("profile")}
+                  Profile
                   </Typography>
             </ListItemText>
 
       </MenuItem>
       </Link>
 
-      <Link href="/[lang]/settings" as={`/${locale}/settings`} passHref >
       <MenuItem>
         
             <ListItemIcon>
@@ -348,41 +347,40 @@ function MyApp({ Component, pageProps }: AppProps) {
             </ListItemIcon>
             <ListItemText>
                   <Typography>
-                    {t("settings")}
+                    Settings
                   </Typography>
             </ListItemText>
 
       </MenuItem>
-      </Link>
 
       </Menu>
   );
 
-  const languageMenuId = 'language settings';
-  const renderLanguageMenu = (
-    <React.Fragment>
+  // const languageMenuId = 'language settings';
+  // const renderLanguageMenu = (
+  //   <React.Fragment>
       
-      <Menu
-        id={languageMenuId}
-        anchorEl={languageAnchorEl}
-        keepMounted
-        open={Boolean(languageAnchorEl)}
-        onClose={handleClose}
-      >
-        {locales.map((option, index) => (
-          <MenuItem
-            key={option}
-            data-my-value={[option]}
-            id={languageNames[option]}
-            selected={index === themeContext.index}
-            onClick={(event) => handleMenuItemClick(event, index)}
-          >
-            {languageNames[option]}
-          </MenuItem>
-        ))}
-      </Menu>
-  </React.Fragment> 
-  );
+  //     <Menu
+  //       id={languageMenuId}
+  //       anchorEl={languageAnchorEl}
+  //       keepMounted
+  //       open={Boolean(languageAnchorEl)}
+  //       onClose={handleClose}
+  //     >
+  //       {locales.map((option, index) => (
+  //         <MenuItem
+  //           key={option}
+  //           data-my-value={[option]}
+  //           id={languageNames[option]}
+  //           selected={index === themeContext.index}
+  //           onClick={(event) => handleMenuItemClick(event, index)}
+  //         >
+  //           {languageNames[option]}
+  //         </MenuItem>
+  //       ))}
+  //     </Menu>
+  // </React.Fragment> 
+  // );
 
   const notificationsMenuId = 'notifications-menu';
   const renderNotifcationsMenu = (
@@ -416,23 +414,23 @@ function MyApp({ Component, pageProps }: AppProps) {
       <MenuItem onClick={handleProfileMenuOpen}>
           <ListItemIcon><AccountCircle />
           </ListItemIcon>
-          <ListItemText primary={t("profile")} />
+          <ListItemText primary="Profile" />
       </MenuItem>
       <MenuItem onClick={handleNotificationMenuOpen}>
           <ListItemIcon><NotificationsIcon />
           </ListItemIcon>
-          <ListItemText primary={t("notifications")}/>
+          <ListItemText primary="Notifications"/>
       </MenuItem>
       <MenuItem onClick={handleThemeChange} >
           <ListItemIcon><Brightness3Icon/>
           </ListItemIcon>
-          <ListItemText primary={t("dark_mode")} />
+          <ListItemText primary="Dark Mode" />
       </MenuItem>
-      <MenuItem onClick={handleLanguageMenuOpen}>
+      {/* <MenuItem onClick={handleLanguageMenuOpen}>
           <ListItemIcon><TranslateIcon/>
           </ListItemIcon>
-          <ListItemText primary={t("language")} />
-      </MenuItem>
+          <ListItemText primary="Language" />
+      </MenuItem> */}
       </Menu>
   );
 
@@ -543,23 +541,23 @@ function MyApp({ Component, pageProps }: AppProps) {
                 </Drawer>
                 <Logo/>
                 <div className={classes.grow} />
-                <div className={classes.sectionDesktop}>
-                <Tooltip title={t("language")}>
+                {/* <div className={classes.sectionDesktop}>
+                <Tooltip title="Language">
                   <IconButton
                     edge='end'
-                    aria-label={t("language")}
+                    aria-label="Language"
                     aria-haspopup='true'
                     onClick={handleLanguageMenuOpen}
                     color='primary'>
                       <TranslateIcon/>
                     </IconButton>
                   </Tooltip>
-                </div>
+                </div> */}
                 <div className={classes.sectionDesktop}>
-                <Tooltip title={t("dark_mode")}>
+                <Tooltip title="Dark Mode">
                   <IconButton
                     edge="end"
-                    aria-label={t("dark_mode")}
+                    aria-label="Dark Mode"
                     aria-haspopup="false"
                     onClick={handleThemeChange}
                     color="primary"
@@ -569,10 +567,10 @@ function MyApp({ Component, pageProps }: AppProps) {
                   </Tooltip>
                 </div>
                 <div className={classes.sectionDesktop}>
-                <Tooltip title={t("notifications")}>
+                <Tooltip title="Notifications">
                   <IconButton
                     edge="end"
-                    aria-label={t("notifications")}
+                    aria-label="Notifications"
                     aria-controls={notificationsMenuId}
                     aria-haspopup="true"
                     onClick={handleNotificationMenuOpen}
@@ -585,9 +583,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                 
   
                 <div className={classes.sectionDesktop}>
-                <Tooltip title={t("profile")}>
+                <Tooltip title="Profile">
                   <IconButton
-                      aria-label={t("profile")}
+                      aria-label="Profile"
                       aria-controls={menuId}
                       aria-haspopup="true"
                       onClick={handleProfileMenuOpen}
@@ -615,7 +613,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             {renderMobileMenu}
             {renderMenu}
             {renderNotifcationsMenu}
-            {renderLanguageMenu}
+            {/* {renderLanguageMenu} */}
           </div>
     );
     };

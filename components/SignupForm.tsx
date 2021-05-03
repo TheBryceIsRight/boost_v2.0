@@ -7,6 +7,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Link from 'next/link';
+import Recaptcha from "react-recaptcha";
 
 
 const initialValues: SignupDetail = {
@@ -16,6 +17,7 @@ email: "",
 password: "",
   acceptedTermsAndConditions: false
 };
+
 
 
 function Alert(props: AlertProps) {
@@ -34,6 +36,8 @@ function Alert(props: AlertProps) {
 
 
 export default function SignupForm() {
+
+
 
     const [message, setMessage] = useState<any>(null);
     const [open, setOpen] = React.useState(false);
@@ -84,6 +88,7 @@ export default function SignupForm() {
               email: string().email('Invalid Email').required('Your email is required').min(5, 'Too short!').max(100,'Too long!'),
               acceptedTermsAndConditions: boolean().oneOf([true], "Please accept the terms and conditions"),
               password: string().required('Your password is required').min(2, 'Too short!').max(100, 'Too long!'),
+              // recaptcha: string().required(),
             })
           }
         initialValues={initialValues} onSubmit={(values, formikHelpers) => {
@@ -99,7 +104,7 @@ export default function SignupForm() {
             }, 2000);
           })
         }}>
-          {({ values, errors, isSubmitting, isValidating }) => (
+          {({ values, errors, isSubmitting, isValidating, setFieldValue }) => (
             <Form>
               <Box marginBottom={2}>
                 <FormGroup>
@@ -135,7 +140,15 @@ export default function SignupForm() {
                   <ErrorMessage name="acceptedTermsAndConditions" />
                 </FormGroup>
               </Box>
-
+              {/* <Box marginBottom={2}>
+              <Recaptcha
+                  sitekey="6Le2nREUAAAAALYuOv7X9Fe3ysDmOmghtj0dbCKW"
+                  render="explicit"
+                  theme="dark"
+                  verifyCallback={(response) => { setFieldValue("recaptcha", response); }}
+                  onloadCallback={() => { console.log("done loading!"); }}
+                />
+              </Box> */}
               <Button variant='contained' color='primary' type="submit" disabled={isSubmitting || isValidating}>Submit</Button>
 
             <pre>{JSON.stringify(errors, null, 4)}</pre>
