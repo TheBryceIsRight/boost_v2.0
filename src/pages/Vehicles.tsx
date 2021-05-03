@@ -7,7 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import fetch from 'isomorphic-unfetch';
 
-export default function Vehicles({ list }) {
+export default function Vehicles({ list }:any) {
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
@@ -20,7 +20,7 @@ export default function Vehicles({ list }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {list.map(row => (
+          {list.map((row:any) => (
             <TableRow key={row.id}>
               <TableCell component="th" scope="row">
                 {row.id}

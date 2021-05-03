@@ -33,12 +33,12 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonIcon from '@material-ui/icons/Person';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import MessageIcon from '@material-ui/icons/Message';
-import useTranslation from '../../hooks/useTranslation';
+// import useTranslation from '../../hooks/useTranslation';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
 import ThemeContext from '../../components/Theme';
 import { useRouter } from 'next/router';
-import { locales, languageNames } from '../../translations/config';
-import TranslateIcon from '@material-ui/icons/Translate';
+// import { locales, languageNames } from '../../translations/config';
+// import TranslateIcon from '@material-ui/icons/Translate';
 import Tooltip from '@material-ui/core/Tooltip';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Divider from '@material-ui/core/Divider';
@@ -205,7 +205,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   
   const classes = useStyles();
 
-  const { t,  locale} = useTranslation()
+  // const { t,  locale} = useTranslation()
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -245,25 +245,25 @@ function MyApp({ Component, pageProps }: AppProps) {
   //Language Selector
   /////////////////////////////
 
-  const router = useRouter();
+  // const router = useRouter();
 
-  const [languageAnchorEl, setlanguageAnchorEl] = React.useState<null | HTMLElement>(null);
+  // const [languageAnchorEl, setlanguageAnchorEl] = React.useState<null | HTMLElement>(null);
 
-  const handleMenuItemClick = (event: React.MouseEvent<HTMLElement>, index: number) => {
-    setlanguageAnchorEl(null);
-    themeContext.index = index;
-    const { myValue } = event.currentTarget.dataset;
-    const regex = new RegExp(`^/(${locales.join('|')})`);
-    router.push(router.pathname, router.asPath.replace(regex, `/${myValue}`));
-  };
+  // const handleMenuItemClick = (event: React.MouseEvent<HTMLElement>, index: number) => {
+  //   setlanguageAnchorEl(null);
+  //   themeContext.index = index;
+  //   const { myValue } = event.currentTarget.dataset;
+  //   const regex = new RegExp(`^/(${locales.join('|')})`);
+  //   router.push(router.pathname, router.asPath.replace(regex, `/${myValue}`));
+  // };
 
-  const handleLanguageMenuOpen = (event: any) => {
-    setlanguageAnchorEl(event.currentTarget);
-  };
+  // const handleLanguageMenuOpen = (event: any) => {
+  //   setlanguageAnchorEl(event.currentTarget);
+  // };
 
-  const handleClose = () => {
-    setlanguageAnchorEl(null);
-  };
+  // const handleClose = () => {
+  //   setlanguageAnchorEl(null);
+  // };
 
   ///////////////////////////
   //End of Language Selector

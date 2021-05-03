@@ -12,11 +12,21 @@ import LineChart from '../../components/LineChart';
 import LineChart2 from '../../components/LineChart2';
 import themeContext from '../../components/Theme';
 import { ThemeProvider } from '@material-ui/core/styles';
+import React from 'react'
 
 
+export default function People({ list }: any) {
 
-export default function People({ list }) {
-
+  const renderTable = (list.map((row:any) => (
+    <TableRow key={row.id}>
+      <TableCell component="th" scope="row">
+        {row.id}
+      </TableCell>
+      <TableCell align="right">{row.email}</TableCell>
+      <TableCell align="right">{row.firstName}</TableCell>
+      <TableCell align="right">{row.lastName}</TableCell>
+    </TableRow>
+  )));
 
   return (
     <ThemeProvider theme={themeContext}>
@@ -48,16 +58,7 @@ export default function People({ list }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {list.map(row => (
-            <TableRow key={row.id}>
-              <TableCell component="th" scope="row">
-                {row.id}
-              </TableCell>
-              <TableCell align="right">{row.email}</TableCell>
-              <TableCell align="right">{row.firstName}</TableCell>
-              <TableCell align="right">{row.lastName}</TableCell>
-            </TableRow>
-          ))}
+          {renderTable}
         </TableBody>
       </Table>
     </TableContainer>
@@ -72,4 +73,28 @@ People.getInitialProps = async () => {
   const json = await response.json();
   return { list: json };
 };
+
+//other ways of rendering tables
+
+          {/* {list.map((row:any) => (
+            <TableRow key={row.id}>
+              <TableCell component="th" scope="row">
+                {row.id}
+              </TableCell>
+              <TableCell align="right">{row.email}</TableCell>
+              <TableCell align="right">{row.firstName}</TableCell>
+              <TableCell align="right">{row.lastName}</TableCell>
+            </TableRow>
+          ))} */}
+          {/* {React.Children.map(list, row => (
+            <TableRow key={row.id}>
+            <TableCell component="th" scope="row">
+              {row.id}
+            </TableCell>
+            <TableCell align="right">{row.email}</TableCell>
+            <TableCell align="right">{row.firstName}</TableCell>
+            <TableCell align="right">{row.lastName}</TableCell>
+          </TableRow>
+        ))} */}
+
 
