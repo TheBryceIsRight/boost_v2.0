@@ -17,6 +17,13 @@ import { ResponsiveLine } from '@nivo/line'
 
 // Nivo theming
 const theme1 = {
+    crosshair: {
+        line: {
+            stroke: darkTheme.palette.primary.main,
+            strokeWidth: 1,
+            strokeOpacity: 0.35,
+        },
+    },
     axis: {
         legend: {
             text: {
@@ -55,6 +62,13 @@ const theme1 = {
   };
   
   const theme2 = {
+      crosshair: {
+        line: {
+            stroke: lightTheme.palette.primary.main,
+            strokeWidth: 1,
+            strokeOpacity: 0.35,
+        },
+    },
     axis: {
         legend: {
             text: {

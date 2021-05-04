@@ -17,80 +17,94 @@ import { ResponsiveLine } from '@nivo/line'
 
 // Nivo theming
 const theme1 = {
-    axis: {
-        legend: {
-            text: {
-              fontFamily: "'Roboto', sans-serif",
-              fill: darkTheme.palette.primary.main,
-            }
-          },
-      ticks: {
-        line: {
+  crosshair: {
+      line: {
           stroke: darkTheme.palette.primary.main,
-          strokeWidth: 0
+          strokeWidth: 1,
+          strokeOpacity: 0.8,
+      },
+  },
+  axis: {
+      legend: {
+          text: {
+            fontFamily: "'Roboto', sans-serif",
+            fill: darkTheme.palette.primary.main,
+          }
         },
-        text: {
-          fill: darkTheme.palette.primary.main,
-          fontFamily: "'Roboto', sans-serif",
-        }
-      }
-    },
-    grid: {
+    ticks: {
       line: {
-        stroke: darkTheme.palette.nuetral.main,
-        strokeWidth: 0.5
-      }
-    },
-    legends: {
+        stroke: darkTheme.palette.primary.main,
+        strokeWidth: 0
+      },
       text: {
-        fontFamily: "'Roboto', sans-serif",
         fill: darkTheme.palette.primary.main,
-      }
-    },
-    tooltip: {
-      container: {
-          background: darkTheme.palette.background.default,
-      },
-  },
-  };
-  
-  const theme2 = {
-    axis: {
-        legend: {
-            text: {
-              fontFamily: "'Roboto', sans-serif",
-              fill: lightTheme.palette.primary.main,
-            }
-          },
-      ticks: {
-        line: {
-          stroke: lightTheme.palette.primary.main,
-          strokeWidth: 0
-        },
-        text: {
-          fill: lightTheme.palette.primary.main,
-          fontFamily: "'Roboto', sans-serif",
-        }
-      }
-    },
-    grid: {
-      line: {
-        stroke: lightTheme.palette.nuetral.main,
-        strokeWidth: 0.5
-      }
-    },
-    legends: {
-      text: {
         fontFamily: "'Roboto', sans-serif",
-        fill: lightTheme.palette.primary.main,
       }
     },
-    tooltip: {
-      container: {
-          background: lightTheme.palette.background.default,
+  },
+  grid: {
+    line: {
+      stroke: darkTheme.palette.nuetral.main,
+      strokeWidth: 0.5
+    }
+  },
+  legends: {
+    text: {
+      fontFamily: "'Roboto', sans-serif",
+      fill: darkTheme.palette.primary.main,
+    }
+  },
+  tooltip: {
+    container: {
+        background: darkTheme.palette.background.default,
+    },
+},
+};
+
+const theme2 = {
+    crosshair: {
+      line: {
+          stroke: lightTheme.palette.primary.main,
+          strokeWidth: 1,
+          strokeOpacity: 0.8,
       },
   },
-  };
+  axis: {
+      legend: {
+          text: {
+            fontFamily: "'Roboto', sans-serif",
+            fill: lightTheme.palette.primary.main,
+          }
+        },
+    ticks: {
+      line: {
+        stroke: lightTheme.palette.primary.main,
+        strokeWidth: 0
+      },
+      text: {
+        fill: lightTheme.palette.primary.main,
+        fontFamily: "'Roboto', sans-serif",
+      }
+    }
+  },
+  grid: {
+    line: {
+      stroke: lightTheme.palette.nuetral.main,
+      strokeWidth: 0.5
+    }
+  },
+  legends: {
+    text: {
+      fontFamily: "'Roboto', sans-serif",
+      fill: lightTheme.palette.primary.main,
+    }
+  },
+  tooltip: {
+    container: {
+        background: lightTheme.palette.background.default,
+    },
+},
+};
 
   const data = [
     {

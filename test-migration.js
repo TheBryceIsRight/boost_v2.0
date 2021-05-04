@@ -9,6 +9,6 @@ const sqlite3 = require('sqlite3');
   });
 
   await db.migrate({ force: true });
-  const microphones = await db.all('select * from microphone');
-  console.log(JSON.stringify(microphones, null, 4));
+  const people = await db.all('select * from person');
+  console.log(JSON.stringify(people, null, 4));
 })();
