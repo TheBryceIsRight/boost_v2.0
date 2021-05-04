@@ -34,7 +34,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert'; 
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import SettingsIcon from '@material-ui/icons/Settings';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import PersonIcon from '@material-ui/icons/Person';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import MessageIcon from '@material-ui/icons/Message';
@@ -334,17 +334,19 @@ function MyApp({ Component, pageProps }: AppProps) {
             </ListItemText>
       </MenuItem>
       </Link>
+      <Link href="/Login" passHref>
+
       <MenuItem>
             <ListItemIcon>
-              <ExitToAppIcon/>
+              <PersonAddIcon/>
             </ListItemIcon>
             <ListItemText>
                   <Typography>
-                  Logout
+                  Sign up
                   </Typography>
             </ListItemText>
       </MenuItem>
-
+      </Link>
       <Link href="/profile" passHref >
       <MenuItem>
         
