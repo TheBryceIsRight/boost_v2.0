@@ -122,7 +122,7 @@ export default function FormDemo() {
             <Typography variant='body1'>Don't have an account?</Typography>
           </Grid>
           <Grid item>
-          <Link href='/signup' passHref>
+          <Link href='/Signup' passHref>
             <Button variant='outlined' color='primary'>Sign up</Button>
           </Link>
           </Grid>

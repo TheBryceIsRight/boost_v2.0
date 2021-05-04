@@ -1,18 +1,32 @@
-import { HomePage } from '../containers/Homepage';
-import React from 'react'
-import Head from 'next/head'
+import { GetServerSideProps } from 'next';
+import Link from 'next/link';
+import { Microphone } from '../../model/Microphone';
+import { openDB } from '../openDB';
 
-const Index: React.FC = () => {
+export interface IndexProps {
+  microphones: Microphone[];
+}
 
-    return (
-      <React.Fragment>
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
-      <HomePage/>
-      </React.Fragment>
-    )
-  }
+export default function Index({ microphones }: IndexProps) {
+  return (
+    <div>
+      <Link href="/people">
+        <a>People</a>
+      </Link>
+      <pre>{JSON.stringify(microphones, null, 4)}</pre>;
+    </div>
+  );
+}
 
+export const getServerSideProps: GetServerSideProps<IndexProps> = async (
+  ctx
+) => {
+  const db = await openDB();
+  const microphones = await db.all<Microphone[]>('select * from microphone');
 
-export default Index;
+  await new Promise(acc => {
+    setTimeout(acc, 3000);
+  });
+
+  return { props: { microphones } };
+};

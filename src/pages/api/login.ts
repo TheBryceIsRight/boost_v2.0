@@ -4,9 +4,11 @@ import { sign } from 'jsonwebtoken';
 import { NextApiRequest, NextApiResponse } from 'next';
 import sqlite from 'sqlite';
 import { secret } from '../../../api/secret';
+import { openDB } from '../../openDB';
+
 
 export default async function login(req: NextApiRequest, res: NextApiResponse) {
-  const db = await sqlite.open('./mydb.sqlite');
+  const db = await openDB();
 
   if (req.method === 'POST') {
     const person = await db.get('select * from person where email = ?', [

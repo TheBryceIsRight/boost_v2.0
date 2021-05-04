@@ -1,12 +1,14 @@
 import { hash } from 'bcrypt';
 import { NextApiRequest, NextApiResponse } from 'next';
 import sqlite from 'sqlite';
+import { openDB } from '../../openDB';
+
 
 export default async function signup(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const db = await sqlite.open('./mydb.sqlite');
+  const db = await openDB();
 
   if (req.method === 'POST') {
     hash(req.body.password, 10, async function(err, hash) {
@@ -16,7 +18,7 @@ export default async function signup(
         'INSERT INTO person (firstName, lastName, email, password) values (?, ?, ?, ?)'
       );
       const result = await statement.run(req.body.firstName, req.body.lastName, req.body.email, hash);
-      result.finalize();
+      // result.finalize();
 
       const person = await db.all('select * from person');
       res.status(200).json({ message: 'Sign up successful' });

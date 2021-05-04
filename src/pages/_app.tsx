@@ -1,4 +1,9 @@
 import { AppProps } from 'next/app';
+import { Router } from 'next/dist/client/router';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+
+
 import React, { useState, useEffect } from 'react'
 import { lightTheme, darkTheme } from '../../components/Theme'
 import { ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
@@ -49,6 +54,20 @@ import Grid from '@material-ui/core/Grid';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Box from "@material-ui/core/Box";
+
+NProgress.configure({ showSpinner: false, trickleRate: 0.1, trickleSpeed: 300 });
+
+Router.events.on('routeChangeStart', () => {
+    NProgress.start() 
+})
+
+Router.events.on('routeChangeComplete', () => {
+    NProgress.done();
+})
+
+Router.events.on('routeChangeError', () => {
+    NProgress.done();
+})
 
 
 const themeContext = {
@@ -155,6 +174,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
       justifyContent: 'flex-end',
     },
 }));
+
 
 
 function MyApp({ Component, pageProps }: AppProps) {

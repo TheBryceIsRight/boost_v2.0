@@ -7,7 +7,6 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Link from 'next/link';
-import Recaptcha from "react-recaptcha";
 
 
 const initialValues: SignupDetail = {
@@ -162,7 +161,7 @@ export default function SignupForm() {
             <Typography variant='body1'>Already have an account?</Typography>
           </Grid>
           <Grid item>
-          <Link href='/login' passHref>
+          <Link href='/Login' passHref>
             <Button variant='outlined' color='primary'>Sign on</Button>
           </Link>
           </Grid>

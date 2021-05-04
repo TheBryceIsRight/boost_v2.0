@@ -1,11 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import sqlite from 'sqlite';
+import { openDB } from '../../../../openDB';
+
 
 export default async function getPersonById(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const db = await sqlite.open('./mydb.sqlite');
+  const db = await openDB();
 
   if (req.method === 'PUT') {
     const statement = await db.prepare(
@@ -17,7 +19,7 @@ export default async function getPersonById(
       req.body.email,
       req.query.id
     );
-    result.finalize();
+    // result.finalize();
   }
 
   const person = await db.get('select * from person where id = ?', [
